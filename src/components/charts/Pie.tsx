@@ -13,13 +13,14 @@ interface PieChartProps {
   data: RatingData[];
 }
 
+
 const PieChart: React.FC<PieChartProps> = ({ data,title }) => {
   const pieData = {
-    labels: data.map(item => `${item.rating} Stars`), 
+    labels: data.map(item => item.label), 
     datasets: [
       {
-        data: data.map(item => item.count), 
-        backgroundColor: ['#FF6384', '#FFCE56', '#4BC0C0', '#36A2EB', '#FF9F40'],
+        data: data.map(item => item.value), 
+        backgroundColor: data.map(item => item.color),
         
       },
       
